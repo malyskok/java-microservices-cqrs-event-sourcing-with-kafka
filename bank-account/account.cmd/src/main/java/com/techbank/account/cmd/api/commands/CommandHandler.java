@@ -5,12 +5,11 @@
  * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
-package com.techbank.cqrs.core.infrastructure;
+package com.techbank.account.cmd.api.commands;
 
-import com.techbank.cqrs.core.commands.BaseCommand;
-import com.techbank.cqrs.core.commands.CommandHandlerMethod;
-
-public interface CommandDispatcher {
-    <T extends BaseCommand> void registerHandler(Class<T> type, CommandHandlerMethod<T> handler);
-    void send(BaseCommand command);
+public interface CommandHandler {
+    void handle(OpenAccountCommand command);
+    void handle(DepositFundsCommand command);
+    void handle(WithdrawFundsCommand command);
+    void handle(CloseAccountCommand command);
 }
