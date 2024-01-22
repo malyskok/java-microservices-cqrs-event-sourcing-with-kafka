@@ -5,17 +5,15 @@
  * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
-package com.techbank.account.common.dto;
+package com.techbank.account.query.api.queries;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import com.techbank.cqrs.core.domain.BaseEntity;
 
-@Data
-@SuperBuilder
-@NoArgsConstructor
-@AllArgsConstructor
-public class BaseResponse {
-    private String message;
+import java.util.List;
+
+public interface QueryHandler {
+    List<BaseEntity> handle(FindAllAccountsQuery query);
+    List<BaseEntity> handle(FindAccountByIdQuery query);
+    List<BaseEntity> handle(FindAccountByHolderQuery query);
+    List<BaseEntity> handle(FindAccountWithBalanceQuery query);
 }
